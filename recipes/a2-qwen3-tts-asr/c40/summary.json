@@ -1,0 +1,104 @@
+{
+  "stock": {
+    "ttfp95_ms": 3296.4228480122983,
+    "rtfp95": 1.8340623842582484,
+    "audio_throughput": 23.06100284440149,
+    "requests": 240,
+    "continuous": 0,
+    "runs": [
+      {
+        "trial": 1,
+        "c": 40,
+        "n": 80,
+        "ttfp50_ms": 2892.6282241009176,
+        "ttfp95_ms": 3296.4228480122983,
+        "rtfp50": 1.6080852616421626,
+        "rtfp95": 1.8340623842582484,
+        "continuous": 0,
+        "required_buffer_p95_ms": 5274.13190525025,
+        "required_buffer_max_ms": 5862.845711931585,
+        "audio_throughput": 23.191723394658588,
+        "request_throughput": 2.681744148318523
+      },
+      {
+        "trial": 2,
+        "c": 40,
+        "n": 80,
+        "ttfp50_ms": 2761.715719010681,
+        "ttfp95_ms": 3264.4032306503505,
+        "rtfp50": 1.6009297376663418,
+        "rtfp95": 1.8547807201858473,
+        "continuous": 0,
+        "required_buffer_p95_ms": 5528.262236351146,
+        "required_buffer_max_ms": 5981.76868777722,
+        "audio_throughput": 22.9946878132611,
+        "request_throughput": 2.6697652169117725
+      },
+      {
+        "trial": 3,
+        "c": 40,
+        "n": 80,
+        "ttfp50_ms": 2567.1188440173864,
+        "ttfp95_ms": 3367.343930248171,
+        "rtfp50": 1.6439855694529197,
+        "rtfp95": 1.784885119639446,
+        "continuous": 0,
+        "required_buffer_p95_ms": 5672.749782316386,
+        "required_buffer_max_ms": 5843.786194510757,
+        "audio_throughput": 23.06100284440149,
+        "request_throughput": 2.6613967506522203
+      }
+    ]
+  },
+  "combo": {
+    "ttfp95_ms": 2808.681689435616,
+    "rtfp95": 1.032374571072136,
+    "audio_throughput": 42.054360491178834,
+    "requests": 240,
+    "continuous": 0,
+    "runs": [
+      {
+        "trial": 1,
+        "c": 40,
+        "n": 80,
+        "ttfp50_ms": 1986.2965573556721,
+        "ttfp95_ms": 2808.681689435616,
+        "rtfp50": 0.8663619349879974,
+        "rtfp95": 1.0433744813634378,
+        "continuous": 0,
+        "required_buffer_p95_ms": 1009.8993570357561,
+        "required_buffer_max_ms": 1550.9706192091105,
+        "audio_throughput": 42.054360491178834,
+        "request_throughput": 4.874737509120069
+      },
+      {
+        "trial": 2,
+        "c": 40,
+        "n": 80,
+        "ttfp50_ms": 1900.3609619103372,
+        "ttfp95_ms": 2746.341060101986,
+        "rtfp50": 0.8886467125204347,
+        "rtfp95": 1.0323192293123533,
+        "continuous": 0,
+        "required_buffer_p95_ms": 1163.3897840492411,
+        "required_buffer_max_ms": 1844.54157974571,
+        "audio_throughput": 41.785003066179215,
+        "request_throughput": 4.853078172610826
+      },
+      {
+        "trial": 3,
+        "c": 40,
+        "n": 80,
+        "ttfp50_ms": 2264.150674454868,
+        "ttfp95_ms": 2810.8900067862123,
+        "rtfp50": 0.8902379354829304,
+        "rtfp95": 1.032374571072136,
+        "continuous": 0,
+        "required_buffer_p95_ms": 1309.6647316962474,
+        "required_buffer_max_ms": 1486.1974787339566,
+        "audio_throughput": 42.067298987155866,
+        "request_throughput": 4.852612641268412
+      }
+    ]
+  }
+}
