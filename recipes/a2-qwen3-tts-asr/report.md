@@ -241,7 +241,6 @@ vllm serve Qwen/Qwen3-ASR-0.6B \
   --port 18119
 ```
 
-[C40 逐轮数据](c40/summary.json) · [C40 补测说明](c40/report.md)
 
 ## 附录：GLM-TTS / GLM-ASR A2 实测数据
 
