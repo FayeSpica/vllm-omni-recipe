@@ -1,0 +1,56 @@
+[
+  {
+    "concurrency": 1,
+    "control": {
+      "ttfp_p95_ms": 188.58795205596834,
+      "rtf_p95": 0.2234683602089052,
+      "audio_throughput": 4.505769304834308,
+      "continuous": 32,
+      "requests": 32
+    },
+    "split": {
+      "ttfp_p95_ms": 219.65495124459267,
+      "rtf_p95": 0.26034609748668114,
+      "audio_throughput": 3.864469404586453,
+      "continuous": 32,
+      "requests": 32
+    },
+    "throughput_change_pct": -14.23286140193184
+  },
+  {
+    "concurrency": 8,
+    "control": {
+      "ttfp_p95_ms": 703.1270290026441,
+      "rtf_p95": 0.3859699355523053,
+      "audio_throughput": 20.592757222919843,
+      "continuous": 27,
+      "requests": 32
+    },
+    "split": {
+      "ttfp_p95_ms": 747.5077486597002,
+      "rtf_p95": 0.40561534780962344,
+      "audio_throughput": 19.699361133854936,
+      "continuous": 27,
+      "requests": 32
+    },
+    "throughput_change_pct": -4.338399561524254
+  },
+  {
+    "concurrency": 40,
+    "control": {
+      "ttfp_p95_ms": 2599.3890668731183,
+      "rtf_p95": 1.0088951763081284,
+      "audio_throughput": 43.47250117985392,
+      "continuous": 0,
+      "requests": 160
+    },
+    "split": {
+      "ttfp_p95_ms": 2792.3695034347475,
+      "rtf_p95": 1.0668761373804387,
+      "audio_throughput": 41.55447002945427,
+      "continuous": 0,
+      "requests": 160
+    },
+    "throughput_change_pct": -4.412056123627195
+  }
+]
