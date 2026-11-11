@@ -21,7 +21,3 @@
 - 原始PCM保留在A2：`/tmp/a2-tts-rsi-ab-20261109/boundary128-20261111/`。
 
 该配置需安装实测实验worktree，不是下载YAML后即获得所有代码优化。代码补丁与精确SHA记录在self-llm的`perf/qwen3-tts/a2-0330rc1-mtp-frame-20261110/`，尚未提交到上游。
-
-## 后续Stage0上限128
-
-[最新高并发补测](stage0-128/README.md)将Stage0上限也改为128，单独保存配置、逐轮数据和有效性失败；不与本目录原Stage0上限64数据混合。
