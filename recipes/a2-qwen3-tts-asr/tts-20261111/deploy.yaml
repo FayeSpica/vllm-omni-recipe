@@ -1,0 +1,128 @@
+# A2 C64 benchmark candidate. Opt in with --deploy-config.
+# Benchmark also used native experimental source overlays, see the experiment report.
+model_runner: v2
+async_chunk: true
+connectors:
+  connector_of_shared_memory:
+    name: SharedMemoryConnector
+    extra:
+      decode_streaming: false
+      talker_projected_text_table: true
+      talker_first_audio: false
+      npu_talker_first_audio: false
+      codec_streaming: true
+      connector_get_sleep_s: 0.01
+      connector_get_max_wait_first_chunk: 3000
+      connector_get_max_wait: 300
+      codec_chunk_frames: 8
+      codec_left_context_frames: 72
+      initial_codec_chunk_frames: 4
+      decode_batch_max_size: 8
+      npu_fused_snake: false
+      npu_conv_graph_shapes:
+      - - 1
+        - 1
+      - - 1
+        - 26
+      - - 1
+        - 37
+      - - 1
+        - 73
+      - - 2
+        - 1
+      - - 2
+        - 26
+      - - 2
+        - 37
+      - - 2
+        - 73
+      - - 4
+        - 1
+      - - 4
+        - 26
+      - - 4
+        - 37
+      - - 4
+        - 73
+      code_predictor_kv_cache: true
+      code_predictor_fused_sampling: false
+      code_predictor_frame_graph: true
+      npu_incremental_codec: true
+      npu_incremental_prewarm_tail_graphs: true
+      npu_incremental_codec_streams: 2
+      ar_prefill_admission_min_batch: 8
+      ar_prefill_admission_max_wait_ms: 150
+      ar_prefill_admission_min_running: 32
+      codec_chunk_ramp:
+      - 2
+      - 6
+      - 8
+stages:
+- stage_id: 0
+  max_num_seqs: 64
+  gpu_memory_utilization: 0.3
+  trust_remote_code: true
+  enable_prefix_caching: false
+  async_scheduling: true
+  max_num_batched_tokens: 2048
+  max_model_len: 4096
+  devices: '0'
+  output_connectors:
+    to_stage_1: connector_of_shared_memory
+  default_sampling_params:
+    temperature: 0.9
+    top_k: 50
+    max_tokens: 4096
+    min_tokens: 2
+    repetition_penalty: 1.05
+  silence_ban_frames: 0
+  subtalker_sampling_params:
+    do_sample: true
+    temperature: 0.9
+    top_k: 50
+    top_p: 1.0
+- stage_id: 1
+  model_runner: v1
+  dtype: bfloat16
+  max_num_seqs: 128
+  gpu_memory_utilization: 0.3
+  enforce_eager: false
+  trust_remote_code: true
+  enable_prefix_caching: false
+  async_scheduling: false
+  max_num_batched_tokens: 65536
+  max_model_len: 65536
+  devices: '0'
+  input_connectors:
+    from_stage_0: connector_of_shared_memory
+  default_sampling_params:
+    temperature: 0.0
+    top_p: 1.0
+    top_k: -1
+    max_tokens: 65536
+    repetition_penalty: 1.0
+platforms:
+  rocm:
+    model_runner: v1
+    stages:
+    - stage_id: 1
+      enforce_eager: true
+  npu:
+    model_runner: v2
+    stages:
+    - stage_id: 0
+      enforce_eager: false
+      compilation_config:
+        cudagraph_mode: FULL_AND_PIECEWISE
+        cudagraph_capture_sizes: [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 128, 256, 512, 768, 1024, 1536, 2048]
+        max_cudagraph_capture_size: 2048
+    - stage_id: 1
+      compilation_config:
+        cudagraph_mode: PIECEWISE
+  xpu:
+    model_runner: v1
+    stages:
+    - stage_id: 1
+      enforce_eager: true
+  musa:
+    model_runner: v1
